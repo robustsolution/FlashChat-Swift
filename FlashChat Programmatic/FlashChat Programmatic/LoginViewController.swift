@@ -5,6 +5,7 @@
 //  Created by Jeevan Chandra Joshi on 13/01/23.
 //
 
+import FirebaseAuth
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -47,6 +48,7 @@ class LoginViewController: UIViewController {
         passwordTextField.textAlignment = .center
         passwordTextField.placeholder = "Password"
         passwordTextField.borderStyle = .none
+        passwordTextField.isSecureTextEntry = true
 
         passwordFieldImage.image = UIImage(named: "TextField")
 
@@ -54,6 +56,7 @@ class LoginViewController: UIViewController {
         loginButton.titleLabel?.font = .systemFont(ofSize: 30)
         loginButton.setTitleColor(UIColor(named: "BrandBlue"), for: .normal)
         loginButton.backgroundColor = UIColor(named: "BrandLightBlue")
+        loginButton.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
     }
 
     func setupConstraint() {
@@ -101,5 +104,24 @@ class LoginViewController: UIViewController {
             loginButton.topAnchor.constraint(equalTo: passwordView.bottomAnchor, constant: -25),
             loginButton.heightAnchor.constraint(equalToConstant: 75),
         ])
+    }
+
+    @objc func loginPressed() {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { _, error in
+                if error != nil {
+                    self.handleError(error)
+                    return
+                }
+                self.navigationController?.pushViewController(ChatViewController(), animated: true)
+            }
+        }
+    }
+
+    func handleError(_ error: Error?) {
+        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 }

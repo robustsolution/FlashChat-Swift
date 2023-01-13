@@ -5,6 +5,7 @@
 //  Created by Jeevan Chandra Joshi on 13/01/23.
 //
 
+import FirebaseAuth
 import UIKit
 
 class RegisterViewController: UIViewController {
@@ -47,6 +48,7 @@ class RegisterViewController: UIViewController {
         passwordTextField.textAlignment = .center
         passwordTextField.placeholder = "Password"
         passwordTextField.borderStyle = .none
+        passwordTextField.isSecureTextEntry = true
 
         passwordFieldImage.image = UIImage(named: "TextField")
 
@@ -54,6 +56,7 @@ class RegisterViewController: UIViewController {
         registerButton.titleLabel?.font = .systemFont(ofSize: 30)
         registerButton.setTitleColor(UIColor(named: "BrandLightBlue"), for: .normal)
         registerButton.backgroundColor = UIColor(named: "BrandBlue")
+        registerButton.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
     }
 
     func setupConstraint() {
@@ -101,5 +104,24 @@ class RegisterViewController: UIViewController {
             registerButton.topAnchor.constraint(equalTo: passwordView.bottomAnchor, constant: -25),
             registerButton.heightAnchor.constraint(equalToConstant: 75),
         ])
+    }
+
+    @objc func registerPressed() {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            Auth.auth().createUser(withEmail: email, password: password) { _, error in
+                if error != nil {
+                    self.handleError(error)
+                    return
+                }
+                self.navigationController?.pushViewController(ChatViewController(), animated: true)
+            }
+        }
+    }
+
+    func handleError(_ error: Error?) {
+        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 }

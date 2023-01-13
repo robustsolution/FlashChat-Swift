@@ -15,6 +15,9 @@
 		93359B3B297113BF00E946B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93359B39297113BF00E946B8 /* LaunchScreen.storyboard */; };
 		9345D506297130810054C633 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9345D505297130810054C633 /* LoginViewController.swift */; };
 		9345D50E297138F90054C633 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9345D50D297138F90054C633 /* ChatViewController.swift */; };
+		936F94E929715F2E00AA1BB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 936F94E829715F2E00AA1BB9 /* GoogleService-Info.plist */; };
+		936F94EC29716E6500AA1BB9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 936F94EB29716E6500AA1BB9 /* FirebaseAuth */; };
+		936F94EE29716E6500AA1BB9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 936F94ED29716E6500AA1BB9 /* FirebaseFirestore */; };
 		93FDDA8C297123DF003F6BBE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDDA8B297123DF003F6BBE /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,7 @@
 		93359B3C297113BF00E946B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9345D505297130810054C633 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9345D50D297138F90054C633 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		936F94E829715F2E00AA1BB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93FDDA8B297123DF003F6BBE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				936F94EC29716E6500AA1BB9 /* FirebaseAuth in Frameworks */,
+				936F94EE29716E6500AA1BB9 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +78,7 @@
 				93359B37297113BF00E946B8 /* Assets.xcassets */,
 				93359B39297113BF00E946B8 /* LaunchScreen.storyboard */,
 				93359B3C297113BF00E946B8 /* Info.plist */,
+				936F94E829715F2E00AA1BB9 /* GoogleService-Info.plist */,
 			);
 			path = "FlashChat Storyboard";
 			sourceTree = "<group>";
@@ -92,6 +99,10 @@
 			dependencies = (
 			);
 			name = "FlashChat Storyboard";
+			packageProductDependencies = (
+				936F94EB29716E6500AA1BB9 /* FirebaseAuth */,
+				936F94ED29716E6500AA1BB9 /* FirebaseFirestore */,
+			);
 			productName = "FlashChat Storyboard";
 			productReference = 93359B2B297113BE00E946B8 /* FlashChat Storyboard.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 93359B22297113BE00E946B8;
+			packageReferences = (
+				936F94EA29716E6500AA1BB9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 93359B2C297113BE00E946B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93359B3B297113BF00E946B8 /* LaunchScreen.storyboard in Resources */,
+				936F94E929715F2E00AA1BB9 /* GoogleService-Info.plist in Resources */,
 				93359B38297113BF00E946B8 /* Assets.xcassets in Resources */,
 				93359B36297113BE00E946B8 /* Main.storyboard in Resources */,
 			);
@@ -368,6 +383,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		936F94EA29716E6500AA1BB9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		936F94EB29716E6500AA1BB9 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 936F94EA29716E6500AA1BB9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		936F94ED29716E6500AA1BB9 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 936F94EA29716E6500AA1BB9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 93359B23297113BE00E946B8 /* Project object */;
 }

@@ -5,6 +5,7 @@
 //  Created by Jeevan Chandra Joshi on 13/01/23.
 //
 
+import FirebaseAuth
 import UIKit
 
 class ChatViewController: UIViewController {
@@ -13,6 +14,7 @@ class ChatViewController: UIViewController {
     let tableViewCell = UITableViewCell()
     let messageTextField = UITextField()
     let sendButton = UIButton()
+    let logoutButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,9 @@ class ChatViewController: UIViewController {
         view.backgroundColor = UIColor(named: "BrandPurple")
         view.addSubview(tableView)
         view.addSubview(messageView)
+
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = logoutButton
 
         messageView.backgroundColor = UIColor(named: "BrandPurple")
         tableView.addSubview(tableViewCell)
@@ -37,6 +42,10 @@ class ChatViewController: UIViewController {
 
         sendButton.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
         sendButton.tintColor = UIColor(named: "BrandLightBlue")
+
+        logoutButton.title = "Logout"
+        logoutButton.target = self
+        logoutButton.action = #selector(logoutPressed)
     }
 
     func setupConstraint() {
@@ -66,5 +75,21 @@ class ChatViewController: UIViewController {
             sendButton.heightAnchor.constraint(equalToConstant: 50),
             sendButton.widthAnchor.constraint(equalToConstant: 50),
         ])
+    }
+
+    @objc func logoutPressed() {
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch {
+            handleError(error)
+        }
+    }
+
+    func handleError(_ error: Error?) {
+        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 }
