@@ -11,37 +11,45 @@ import UIKit
 class ChatViewController: UIViewController {
     let tableView = UITableView()
     let messageView = UITextField()
-    let tableViewCell = UITableViewCell()
+    let tableViewCell = MessageCell()
     let messageTextField = UITextField()
     let sendButton = UIButton()
     let logoutButton = UIBarButtonItem()
+
+    var messages = [
+        Message(sender: "Me", body: "Hey"),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUi()
         setupConstraint()
+        tableView.dataSource = self
     }
 
     func setupUi() {
-        view.backgroundColor = UIColor(named: "BrandPurple")
+        view.backgroundColor = UIColor(named: K.Colors.purple)
         view.addSubview(tableView)
         view.addSubview(messageView)
 
         navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem = logoutButton
 
-        messageView.backgroundColor = UIColor(named: "BrandPurple")
-        tableView.addSubview(tableViewCell)
+        messageView.backgroundColor = UIColor(named: K.Colors.purple)
+        tableView.register(MessageCell.self, forCellReuseIdentifier: K.cellIdentifier)
         messageView.addSubview(messageTextField)
         messageView.addSubview(sendButton)
 
-        messageTextField.textColor = UIColor(named: "BrandPurple")
+        tableView.separatorStyle = .none
+        tableViewCell.selectionStyle = .none
+
+        messageTextField.textColor = UIColor(named: K.Colors.purple)
         messageTextField.font = .systemFont(ofSize: 16)
         messageTextField.placeholder = "Write a message..."
         messageTextField.borderStyle = .roundedRect
 
         sendButton.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
-        sendButton.tintColor = UIColor(named: "BrandLightBlue")
+        sendButton.tintColor = UIColor(named: K.Colors.lighBlue)
 
         logoutButton.title = "Logout"
         logoutButton.target = self
@@ -82,14 +90,19 @@ class ChatViewController: UIViewController {
             try Auth.auth().signOut()
             navigationController?.popToRootViewController(animated: true)
         } catch {
-            handleError(error)
+            handleError(self, error)
         }
     }
+}
 
-    func handleError(_ error: Error?) {
-        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(action)
-        present(alert, animated: true)
+extension ChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
+        cell.label.text = messages[indexPath.row].body
+        return cell
     }
 }

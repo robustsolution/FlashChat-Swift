@@ -24,9 +24,9 @@ class WelcomeViewController: UIViewController {
         view.addSubview(registerButton)
         view.addSubview(loginButton)
 
-        let titleText = "⚡️FlashChat"
+        let titleText = K.title
         titleLabel.text = ""
-        titleLabel.textColor = UIColor(named: "BrandBlue")
+        titleLabel.textColor = UIColor(named: K.Colors.blue)
         titleLabel.font = .systemFont(ofSize: 50, weight: .heavy)
         titleLabel.textAlignment = .center
         for (index, letter) in titleText.enumerated() {
@@ -37,16 +37,16 @@ class WelcomeViewController: UIViewController {
 
         registerButton.setTitle("Register", for: .normal)
         registerButton.titleLabel?.font = .systemFont(ofSize: 30)
-        registerButton.setTitleColor(UIColor(named: "BrandBlue"), for: .normal)
-        registerButton.backgroundColor = UIColor(named: "BrandLightBlue")
+        registerButton.setTitleColor(UIColor(named: K.Colors.blue), for: .normal)
+        registerButton.backgroundColor = UIColor(named: K.Colors.lighBlue)
         registerButton.addAction(UIAction(handler: { _ in
             self.navigationController?.pushViewController(RegisterViewController(), animated: true)
         }), for: .touchUpInside)
 
         loginButton.setTitle("Login", for: .normal)
         loginButton.titleLabel?.font = .systemFont(ofSize: 30)
-        loginButton.setTitleColor(UIColor(named: "BrandLightBlue"), for: .normal)
-        loginButton.backgroundColor = UIColor(named: "BrandBlue")
+        loginButton.setTitleColor(UIColor(named: K.Colors.lighBlue), for: .normal)
+        loginButton.backgroundColor = UIColor(named: K.Colors.blue)
         loginButton.addAction(UIAction(handler: { _ in
             self.navigationController?.pushViewController(LoginViewController(), animated: true)
         }), for: .touchUpInside)

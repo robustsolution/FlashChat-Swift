@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     }
 
     func setupUi() {
-        view.backgroundColor = UIColor(named: "BrandBlue")
+        view.backgroundColor = UIColor(named: K.Colors.blue)
         view.addSubview(emailView)
         view.addSubview(passwordView)
         view.addSubview(loginButton)
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         passwordView.addSubview(passwordFieldImage)
         passwordView.addSubview(passwordTextField)
 
-        emailTextField.textColor = UIColor(named: "BrandBlue")
+        emailTextField.textColor = UIColor(named: K.Colors.blue)
         emailTextField.font = .systemFont(ofSize: 25)
         emailTextField.textAlignment = .center
         emailTextField.placeholder = "Email"
@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
 
         emailFieldImage.image = UIImage(named: "TextField")
 
-        passwordTextField.textColor = UIColor(named: "BrandBlue")
+        passwordTextField.textColor = UIColor(named: K.Colors.blue)
         passwordTextField.font = .systemFont(ofSize: 25)
         passwordTextField.textAlignment = .center
         passwordTextField.placeholder = "Password"
@@ -54,8 +54,8 @@ class LoginViewController: UIViewController {
 
         loginButton.setTitle("Login", for: .normal)
         loginButton.titleLabel?.font = .systemFont(ofSize: 30)
-        loginButton.setTitleColor(UIColor(named: "BrandBlue"), for: .normal)
-        loginButton.backgroundColor = UIColor(named: "BrandLightBlue")
+        loginButton.setTitleColor(UIColor(named: K.Colors.blue), for: .normal)
+        loginButton.backgroundColor = UIColor(named: K.Colors.lighBlue)
         loginButton.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
     }
 
@@ -110,18 +110,11 @@ class LoginViewController: UIViewController {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { _, error in
                 if error != nil {
-                    self.handleError(error)
+                    handleError(self, error)
                     return
                 }
                 self.navigationController?.pushViewController(ChatViewController(), animated: true)
             }
         }
-    }
-
-    func handleError(_ error: Error?) {
-        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(action)
-        present(alert, animated: true)
     }
 }
