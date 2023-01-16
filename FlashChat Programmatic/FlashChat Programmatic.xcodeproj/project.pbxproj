@@ -21,9 +21,11 @@
 		938328762974192E00778A63 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938328752974192E00778A63 /* Utils.swift */; };
 		9383287E2974243400778A63 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383287D2974243400778A63 /* Message.swift */; };
 		938328802974246B00778A63 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383287F2974246B00778A63 /* MessageCell.swift */; };
+		A3C314E6ED1624423CD689BB /* libPods-FlashChat Programmatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D32D0E17359E9929D20495 /* libPods-FlashChat Programmatic.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21D32D0E17359E9929D20495 /* libPods-FlashChat Programmatic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlashChat Programmatic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93359B4B297113D900E946B8 /* FlashChat Programmatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FlashChat Programmatic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93359B4E297113D900E946B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93359B50297113D900E946B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		938328752974192E00778A63 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9383287D2974243400778A63 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9383287F2974246B00778A63 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		AD2347394F047EB27F5D1E78 /* Pods-FlashChat Programmatic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashChat Programmatic.debug.xcconfig"; path = "Target Support Files/Pods-FlashChat Programmatic/Pods-FlashChat Programmatic.debug.xcconfig"; sourceTree = "<group>"; };
+		D178B18F969416AE1A0BA065 /* Pods-FlashChat Programmatic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashChat Programmatic.release.xcconfig"; path = "Target Support Files/Pods-FlashChat Programmatic/Pods-FlashChat Programmatic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +51,38 @@
 			files = (
 				936F94F129716E9B00AA1BB9 /* FirebaseAuth in Frameworks */,
 				936F94F329716E9B00AA1BB9 /* FirebaseFirestore in Frameworks */,
+				A3C314E6ED1624423CD689BB /* libPods-FlashChat Programmatic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34EBCD8F08B00D674DDB1E1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21D32D0E17359E9929D20495 /* libPods-FlashChat Programmatic.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49BE2E1AF32BD88180957EAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD2347394F047EB27F5D1E78 /* Pods-FlashChat Programmatic.debug.xcconfig */,
+				D178B18F969416AE1A0BA065 /* Pods-FlashChat Programmatic.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 		93359B42297113D900E946B8 = {
 			isa = PBXGroup;
 			children = (
 				93359B4D297113D900E946B8 /* FlashChat Programmatic */,
 				93359B4C297113D900E946B8 /* Products */,
+				49BE2E1AF32BD88180957EAA /* Pods */,
+				34EBCD8F08B00D674DDB1E1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +145,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93359B5F297113DA00E946B8 /* Build configuration list for PBXNativeTarget "FlashChat Programmatic" */;
 			buildPhases = (
+				CAE912F976695B9D118069B2 /* [CP] Check Pods Manifest.lock */,
 				93359B47297113D900E946B8 /* Sources */,
 				93359B48297113D900E946B8 /* Frameworks */,
 				93359B49297113D900E946B8 /* Resources */,
@@ -185,6 +211,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CAE912F976695B9D118069B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlashChat Programmatic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		93359B47297113D900E946B8 /* Sources */ = {
@@ -333,6 +384,7 @@
 		};
 		93359B60297113DA00E946B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD2347394F047EB27F5D1E78 /* Pods-FlashChat Programmatic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -359,6 +411,7 @@
 		};
 		93359B61297113DA00E946B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D178B18F969416AE1A0BA065 /* Pods-FlashChat Programmatic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

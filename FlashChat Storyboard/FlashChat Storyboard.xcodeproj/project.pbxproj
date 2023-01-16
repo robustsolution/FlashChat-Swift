@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16A832B21F982348E7DC3D37 /* libPods-FlashChat Storyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F49630549781ACB32372B41 /* libPods-FlashChat Storyboard.a */; };
 		93359B2F297113BE00E946B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93359B2E297113BE00E946B8 /* AppDelegate.swift */; };
 		93359B31297113BE00E946B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93359B30297113BE00E946B8 /* SceneDelegate.swift */; };
 		93359B33297113BE00E946B8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93359B32297113BE00E946B8 /* WelcomeViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F49630549781ACB32372B41 /* libPods-FlashChat Storyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlashChat Storyboard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93359B2B297113BE00E946B8 /* FlashChat Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FlashChat Storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93359B2E297113BE00E946B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93359B30297113BE00E946B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +44,8 @@
 		9383287929741F3000778A63 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9383287A29741F3000778A63 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		93FDDA8B297123DF003F6BBE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B108065B4B7F44022A3EFF20 /* Pods-FlashChat Storyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashChat Storyboard.debug.xcconfig"; path = "Target Support Files/Pods-FlashChat Storyboard/Pods-FlashChat Storyboard.debug.xcconfig"; sourceTree = "<group>"; };
+		FC266C8A434543011A7D9D2D /* Pods-FlashChat Storyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashChat Storyboard.release.xcconfig"; path = "Target Support Files/Pods-FlashChat Storyboard/Pods-FlashChat Storyboard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +55,38 @@
 			files = (
 				936F94EC29716E6500AA1BB9 /* FirebaseAuth in Frameworks */,
 				936F94EE29716E6500AA1BB9 /* FirebaseFirestore in Frameworks */,
+				16A832B21F982348E7DC3D37 /* libPods-FlashChat Storyboard.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C57C1816125D5DB46AB7924 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B108065B4B7F44022A3EFF20 /* Pods-FlashChat Storyboard.debug.xcconfig */,
+				FC266C8A434543011A7D9D2D /* Pods-FlashChat Storyboard.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		8311B6453F07A6AD4E320D29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F49630549781ACB32372B41 /* libPods-FlashChat Storyboard.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		93359B22297113BE00E946B8 = {
 			isa = PBXGroup;
 			children = (
 				93359B2D297113BE00E946B8 /* FlashChat Storyboard */,
 				93359B2C297113BE00E946B8 /* Products */,
+				3C57C1816125D5DB46AB7924 /* Pods */,
+				8311B6453F07A6AD4E320D29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +151,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93359B3F297113BF00E946B8 /* Build configuration list for PBXNativeTarget "FlashChat Storyboard" */;
 			buildPhases = (
+				760EB60C3FCAA359721D17D4 /* [CP] Check Pods Manifest.lock */,
 				93359B27297113BE00E946B8 /* Sources */,
 				93359B28297113BE00E946B8 /* Frameworks */,
 				93359B29297113BE00E946B8 /* Resources */,
@@ -193,6 +219,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		760EB60C3FCAA359721D17D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlashChat Storyboard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		93359B27297113BE00E946B8 /* Sources */ = {
@@ -349,6 +400,7 @@
 		};
 		93359B40297113BF00E946B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B108065B4B7F44022A3EFF20 /* Pods-FlashChat Storyboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -376,6 +428,7 @@
 		};
 		93359B41297113BF00E946B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC266C8A434543011A7D9D2D /* Pods-FlashChat Storyboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

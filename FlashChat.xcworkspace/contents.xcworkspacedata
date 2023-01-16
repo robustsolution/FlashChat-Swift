@@ -7,4 +7,7 @@
    <FileRef
       location = "group:FlashChat Programmatic/FlashChat Programmatic.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>

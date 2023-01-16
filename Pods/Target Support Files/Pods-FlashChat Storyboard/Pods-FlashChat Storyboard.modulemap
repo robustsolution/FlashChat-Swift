@@ -1,0 +1,6 @@
+module Pods_FlashChat_Storyboard {
+  umbrella header "Pods-FlashChat Storyboard-umbrella.h"
+
+  export *
+  module * { export * }
+}

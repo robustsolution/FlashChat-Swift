@@ -1,0 +1,6 @@
+module Pods_FlashChat_Programmatic {
+  umbrella header "Pods-FlashChat Programmatic-umbrella.h"
+
+  export *
+  module * { export * }
+}
