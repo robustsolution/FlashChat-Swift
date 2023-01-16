@@ -10,6 +10,7 @@ import UIKit
 class MessageCell: UITableViewCell {
     let stackView = UIStackView()
     let messageBubble = UIView()
+    let leftImageView = UIImageView()
     let label = UILabel()
     let rightImageView = UIImageView()
 
@@ -25,6 +26,7 @@ class MessageCell: UITableViewCell {
 
     func setupUi() {
         selectionStyle = .none
+        isUserInteractionEnabled = false
         contentView.addSubview(stackView)
 
         stackView.axis = .horizontal
@@ -32,12 +34,15 @@ class MessageCell: UITableViewCell {
         stackView.distribution = .fill
         stackView.spacing = 20
 
+        stackView.addArrangedSubview(leftImageView)
         stackView.addArrangedSubview(messageBubble)
         stackView.addArrangedSubview(rightImageView)
 
         messageBubble.addSubview(label)
         messageBubble.backgroundColor = UIColor(named: K.Colors.purple)
         messageBubble.layer.cornerRadius = frame.size.height / 5
+
+        leftImageView.image = UIImage(named: K.youAvatar)
 
         label.textColor = UIColor(named: K.Colors.lightPurple)
         label.numberOfLines = 0
@@ -48,6 +53,7 @@ class MessageCell: UITableViewCell {
     func setupConstraint() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         messageBubble.translatesAutoresizingMaskIntoConstraints = false
+        leftImageView.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         rightImageView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -56,6 +62,9 @@ class MessageCell: UITableViewCell {
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+
+            leftImageView.heightAnchor.constraint(equalToConstant: 50),
+            leftImageView.widthAnchor.constraint(equalToConstant: 50),
 
             label.topAnchor.constraint(equalTo: messageBubble.topAnchor, constant: 10),
             label.bottomAnchor.constraint(equalTo: messageBubble.bottomAnchor, constant: -10),
